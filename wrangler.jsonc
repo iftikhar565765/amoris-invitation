@@ -15,7 +15,7 @@
       // One-time setup: create the D1 database, then paste its id here.
       //   npx wrangler d1 create amoris-invitations
       // (DEPLOY.md walks through this step by step.)
-      "database_id": "740850df-b064-4e4d-b39e-cbb5f5ff037c"
+      "database_id": "f510d5a3-e4b3-4b4f-9eba-5df46663a49d"
     }
   ]
 }
