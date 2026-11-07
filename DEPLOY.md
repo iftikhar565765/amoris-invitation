@@ -111,6 +111,8 @@ npm install
 npx wrangler login
 
 # 3. Create the database and copy the printed database_id
+#    (wrangler.jsonc ships with the template's placeholder id —
+#     replace it with the id printed below.)
 npx wrangler d1 create amoris-invitations
 
 # 4. Put the database_id into wrangler.jsonc
