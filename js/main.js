@@ -37,6 +37,12 @@
       'wedding.words': w.words,
       'wedding.numerals': w.numerals,
       'wedding.zoneLabel': w.zoneLabel,
+      'wedding.weekday': w.weekday,
+      'wedding.month': w.month,
+      'wedding.day': w.day,
+      'wedding.year': w.year,
+      'wedding.muhurat': w.muhurat,
+      'wedding.muhuratLabel': w.muhuratLabel,
       'venue.name': v.name,
       'venue.address': v.address,
       'rsvp.deadline': r.deadline
@@ -74,6 +80,8 @@
     if (descriptionEl && typeof description === 'string' && description) descriptionEl.content = description;
     applyTheme();
     applyFonts();
+    /* the garden palette paints every SVG ornament through the
+       same tokens the CSS reads — one recolour, whole suite. */
   }
 
   function applyPreviewConfig(nextConfig) {
@@ -119,6 +127,8 @@
 
   var fontFamilies = {
     editorial: {
+      suranna: "'Suranna', serif",
+      rozhaOne: "'Rozha One', serif",
       bodoni: "'Bodoni Moda', serif",
       playfair: "'Playfair Display', serif",
       dmSerif: "'DM Serif Display', serif",
@@ -126,9 +136,12 @@
       prata: "'Prata', serif",
       marcellus: "'Marcellus', serif",
       italiana: "'Italiana', serif",
+      yatraOne: "'Yatra One', serif",
       libreCaslon: "'Libre Caslon Text', serif"
     },
     display: {
+      eczar: "'Eczar', serif",
+      marcellus: "'Marcellus', serif",
       cormorant: "'Cormorant Garamond', serif",
       ebGaramond: "'EB Garamond', serif",
       lora: "'Lora', serif",
@@ -139,6 +152,7 @@
       libreBaskerville: "'Libre Baskerville', serif"
     },
     script: {
+      amita: "'Amita', cursive",
       pinyon: "'Pinyon Script', cursive",
       greatVibes: "'Great Vibes', cursive",
       allura: "'Allura', cursive",
@@ -149,6 +163,7 @@
       herrVonMuellerhoff: "'Herr Von Muellerhoff', cursive"
     },
     hand: {
+      kalam: "'Kalam', cursive",
       laBelle: "'La Belle Aurore', cursive",
       caveat: "'Caveat', cursive",
       cedarville: "'Cedarville Cursive', cursive",
@@ -157,7 +172,9 @@
       nothingYouCouldDo: "'Nothing You Could Do', cursive"
     },
     body: {
+      halant: "'Halant', serif",
       jost: "'Jost', sans-serif",
+      spaceGrotesk: "'Space Grotesk', sans-serif",
       dmSans: "'DM Sans', sans-serif",
       lato: "'Lato', sans-serif",
       montserrat: "'Montserrat', sans-serif",
@@ -173,11 +190,11 @@
     Object.keys(fontFamilies).forEach(function (role) {
       var choices = fontFamilies[role];
       var selected = choices[fonts[role]] || choices[{
-        editorial: 'playfair',
-        display: 'ebGaramond',
-        script: 'greatVibes',
-        hand: 'caveat',
-        body: 'dmSans'
+        editorial: 'suranna',
+        display: 'eczar',
+        script: 'amita',
+        hand: 'kalam',
+        body: 'halant'
       }[role]];
       document.documentElement.style.setProperty('--font-' + role, selected);
     });
@@ -228,52 +245,66 @@
   /* Removable & recolourable pieces of the suite — keyed in HTML
      via data-element-key and hidden through config.hiddenElements. */
   var elementLabels = {
-    'opening-florals-top': 'Fern spray · top',
-    'opening-florals-bottom': 'Fern spray · bottom',
-    'opening-glow': 'Firefly glow',
-    'opening-watermark': 'Ampersand watermark',
+    'opening-tiles': 'The corner cascades',
+    'opening-glow': 'Lantern glow',
     'opening-eyebrow': 'Opening introduction',
     'opening-names': 'Opening names',
-    'fireflies': 'The fireflies',
-    'envelope-shadow': 'Door shadow',
-    'envelope-stamps': 'Gate finial',
-    'envelope-flap': 'The bower doors',
-    'envelope-address': 'Gate inscription',
-    'envelope-seal': 'The fern medallion',
+    'envelope-shadow': 'Envelope shadow',
+    'envelope-lace': 'The shamsa medallion',
+    'envelope-letter': 'The letter inside',
+    'envelope-flap': 'The silk flap',
+    'envelope-stamps': 'The postage stamp',
+    'envelope-seal': 'The gold dome seal',
+    'envelope-address': 'The address plate',
     'opening-hint': 'Invitation hint',
     'open-button': 'Open button',
-    'invite-spray-top': 'The fern medallion',
-    'invite-spray-bottom': 'Hero ornament',
+    'hero-card': 'The stage frame',
+    'hero-mandala': 'The rangoli watermark',
+    'hero-ganesha': 'The lotus Om invocation',
+    'hero-cascade-tl': 'Inlay cascade · top left',
+    'hero-cascade-tr': 'Inlay cascade · top right',
+    'hero-spray-tl': 'Rose cluster · top left',
+    'hero-spray-tr': 'Rose spray · top right',
+    'hero-spray-bl': 'Petal drift · bottom left',
+    'hero-spray-br': 'Petal drift · bottom right',
+    'hero-bell-tl': 'Marigold toran · top left',
+    'hero-bell-tr': 'Marigold toran · top right',
+    'hero-jasmine-l': 'Peacock feather · left',
+    'hero-jasmine-r': 'Peacock feather · right',
+    'hero-pavilion': 'The sacred kalash',
+    'hero-drape': 'The inlay spray',
+    'hero-leaf-bl': 'Marble leaves · bottom left',
+    'hero-leaf-br': 'Marble leaves · bottom right',
+    'hero-diya-bl': 'Floating candle bowl · bottom left',
+    'hero-diya-br': 'Rose cluster · bottom right',
+    'hero-lotus-bl': 'The courtyard bowl',
+    'hero-lotus-br': 'Rose cluster · bottom right',
     'folio-quote': 'Keepsake quote card',
-    'folio-note-one': 'Folio note i',
-    'folio-note-two': 'Folio note ii',
-    'folio-note-three': 'Folio note iii',
-    'story-garland-top': 'Story garland',
-    'story-garland-bottom': 'Story pressed fern',
     'story-caption': 'Story inscription',
     'story-note': 'Story handwritten note',
-    'story-keepsake': 'Stamp & postmark',
-    'std-glow': 'Firefly wash',
-    'std-candles': 'The fern emblem',
-    'std-note': 'The announcement plate',
+    'std-glow': 'Moonlit wash',
+    'std-candles': 'The brass diya',
+    'std-note': 'The gilded plate',
     'std-seal': 'Save-the-date seal',
-    'detail-ceremony': 'Details · ceremony',
-    'detail-reception': 'Details · reception',
-    'detail-reply': 'Details · kindly reply',
+    'detail-ceremony': 'Events · sangeet night',
+    'detail-reception': 'Events · pheras',
+    'detail-reply': 'Events · kindly reply',
+    'detail-haldi': 'Events · haldi',
+    'detail-mehndi': 'Events · mehndi',
+    'detail-feast': 'Events · reception',
     'details-bouquet': 'The particulars',
-    'details-arch': 'Details ornament',
     'palette-swatches': 'Palette swatches',
     'palette-dresscode': 'Dress code note',
     'day-words': 'The garland of moments',
-    'venue-lights': 'The trellis arbor',
-    'venue-ornament': 'The glasshouse',
+    'venue-ornament': 'The golden mandap arch',
+    'venue-arch': 'The marble arch',
     'rsvp-watermark': 'RSVP watermark',
     'rsvp-ornament': 'RSVP ornament',
     'countdown-clock': 'Countdown clock',
-    'countdown-wreath': 'The fern wreath',
-    'closing-swag': 'Closing garland',
+    'countdown-wreath': 'The shamsa rosette',
+    'closing-swag': 'The moonlight plate',
     'closing-message': 'Closing message',
-    'closing-seal': 'Closing wax seal',
+    'closing-seal': 'Closing seal',
     'footer-ornament': 'Footer ornament'
   };
 
@@ -448,7 +479,7 @@
       /* decorative pieces ignore pointer events on the guest page —
          the editor needs to reach them for recolour & removal      */
       '.opening__florals,.opening__glow,.opening__watermark,' +
-      '.envelope__seal-wrap,.envelope__stamp,.envelope__band,.invitation-bloom,' +
+      '.envelope__seal-wrap,.envelope__stamps,.envelope__letter,.invitation-bloom,' +
       '.story-swag,.fc-quote__bloom,.story-keepsake,.std-candles,.std-glow,' +
       '.details-art__arch,.venue-lights,.closing-swag,.countdown-wreath{' +
         'pointer-events:auto!important;' +
@@ -545,8 +576,8 @@
       /* card faces paint over their keyed wrappers — select the
          face itself for recolouring; Remove targets the keyed
          parent (passed as removeKey) so the whole piece comes away */
-      var cardFace = event.target.closest('.envelope__card-frame, .envelope__card-inner, ' +
-        '.envelope__card, .envelope__band');
+      var cardFace = event.target.closest('.envelope__pocket, .envelope__back, ' +
+        '.envelope__flap-face, .envelope__flap-liner, .envelope__letter-inner');
       if (cardFace) {
         event.preventDefault();
         event.stopPropagation();
@@ -630,15 +661,29 @@
   });
 
   var themePresets = {
-    /* four moods of the romance — light-first, recoloured by the editor */
-    twilight: { burgundy: '#C18A70', deep: '#A66B54', wine: '#5B3644', crimson: '#CDA3B0', champagne: '#C39B63', soft: '#AC8049', parchment: '#F8EEE8', ivory: '#FFFCFA', paper: '#FFFFFF', night: '#FBF3EF', nightDeep: '#F4E7E2', olive: '#87927A', oliveDeep: '#6A7661', sage: '#B0BAA6', rose: '#E8B9C4', ink: '#523540', inkSoft: '#7C5964', charcoal: '#A58B93' },
-    blossom:  { burgundy: '#C07E93', deep: '#A05F76', wine: '#5E3548', crimson: '#D4A2B6', champagne: '#C39B63', soft: '#AC8049', parchment: '#F9EDEE', ivory: '#FFFBFB', paper: '#FFFFFF', night: '#FBF0F0', nightDeep: '#F5E3E4', olive: '#8A8672', oliveDeep: '#6D6A58', sage: '#B2AC9C', rose: '#EFB4C6', ink: '#563546', inkSoft: '#7F5566', charcoal: '#A88793' },
-    gilded:   { burgundy: '#BE8A54', deep: '#9C6C38', wine: '#5F4438', crimson: '#D3B4A0', champagne: '#BC8A3C', soft: '#A3742F', parchment: '#F8EFDD', ivory: '#FFFCF2', paper: '#FFFFFF', night: '#FBF4E7', nightDeep: '#F4E9D5', olive: '#8F8663', oliveDeep: '#726B4E', sage: '#B5AC8E', rose: '#E9BCA9', ink: '#544036', inkSoft: '#7E654F', charcoal: '#A6917B' },
-    moonlit:  { burgundy: '#9AA6B8', deep: '#7A889D', wine: '#3E4A5C', crimson: '#A8BACB', champagne: '#C4A46C', soft: '#AA8B52', parchment: '#EEF1F4', ivory: '#FBFCFE', paper: '#FFFFFF', night: '#F2F5F9', nightDeep: '#E5ECF2', olive: '#7E8C8A', oliveDeep: '#62706F', sage: '#A2B2B0', rose: '#C5ABB9', ink: '#37455A', inkSoft: '#5C7089', charcoal: '#8698AB' }
+    /* moods of the monument — the default taj (Mumtaz) suite:
+       Makrana-ivory papers, warm umber dusk nights, carnelian accents,
+       champagne-gold hairlines and a mother-of-pearl envelope,
+       with jade and pale-jade greens. Night tones appear in the
+       lapis interludes & the opening. The other moods remain
+       available through the editor.                               */
+    taj:      { burgundy: '#A3492A', deep: '#823A1F', wine: '#3A2C20', crimson: '#E2B995', champagne: '#B98A3E', soft: '#96702F', parchment: '#EFE7D6', ivory: '#F2EDE2', paper: '#FBF8F1', night: '#362A1E', nightDeep: '#261D14', olive: '#6E8265', oliveDeep: '#556A50', sage: '#A9B8A6', rose: '#E9D3C0', ink: '#33261B', inkSoft: '#6E5A46', charcoal: '#A99C8B' },
+    /* moods of the darbar — the default noor (emerald) suite:
+       every preset only re-tunes the same six roles, so the whole
+       monument recolours as one fabric.                        */
+    noor:     { burgundy: '#0E4B3A', deep: '#0A3A2D', wine: '#06281F', crimson: '#DCE8DD', champagne: '#C0A052', soft: '#96762F', parchment: '#EFE8D4', ivory: '#F4EFE2', paper: '#FCF9F0', night: '#0A2E24', nightDeep: '#051F18', olive: '#5F7A5A', oliveDeep: '#466042', sage: '#AEC0AA', rose: '#E7CDB4', ink: '#1F2A25', inkSoft: '#5C6B60', charcoal: '#9AA79B' },
+    zafiran:  { burgundy: '#8C6B12', deep: '#6E5209', wine: '#4A3404', crimson: '#E3C268', champagne: '#D6A02E', soft: '#A87A1C', parchment: '#F8F0D8', ivory: '#FCF6E4', paper: '#FEFAEE', night: '#3A2B08', nightDeep: '#2A1D04', olive: '#6E6A2A', oliveDeep: '#524E1B', sage: '#B4B079', rose: '#EDD8A0', ink: '#2E2410', inkSoft: '#6E5C32', charcoal: '#A8986C' },
+    marjan:   { burgundy: '#7A2E2E', deep: '#5E1F1F', wine: '#3E1212', crimson: '#D99292', champagne: '#C0A052', soft: '#96762F', parchment: '#F6E8DC', ivory: '#FAF1E4', paper: '#FEF8EE', night: '#38120F', nightDeep: '#260A08', olive: '#7A5A3A', oliveDeep: '#5C422A', sage: '#B49C86', rose: '#E8C0A8', ink: '#2C1410', inkSoft: '#6E4038', charcoal: '#A68478' },
+    nilofar:  { burgundy: '#2A4A6B', deep: '#1C3854', wine: '#10233A', crimson: '#8FB4D9', champagne: '#C0A052', soft: '#96762F', parchment: '#E8EEF6', ivory: '#F1F4F9', paper: '#FAFBFE', night: '#0F1E33', nightDeep: '#081426', olive: '#3A6E6B', oliveDeep: '#285450', sage: '#8FB0B4', rose: '#C0D4E8', ink: '#121E2A', inkSoft: '#3E5468', charcoal: '#78889C' },
+    /* moods of the rose window — the default amoris (wine & blush) suite:
+       wine-dark nights, blush rose glass, antique gold and warm ivory
+       papers; every preset re-tunes the same six roles.               */
+    amoris: { burgundy: '#6E2434', deep: '#5A1C2A', wine: '#3A1219', crimson: '#E3C6BC', champagne: '#C9A24B', soft: '#7C6128', parchment: '#F3E9D8', ivory: '#F6EFE0', paper: '#FCF7EC', night: '#3A1820', nightDeep: '#2E1218', olive: '#4E6B4E', oliveDeep: '#3A533B', sage: '#B7C4AE', rose: '#E8C2B8', ink: '#2E1A1E', inkSoft: '#6E545A', charcoal: '#A69599' },
+    zaytoon:  { burgundy: '#4A5E2A', deep: '#38491C', wine: '#24300E', crimson: '#A9C078', champagne: '#C6A24F', soft: '#9A7B36', parchment: '#F0F2DE', ivory: '#F6F8E8', paper: '#FCFEF2', night: '#1E2812', nightDeep: '#141C0A', olive: '#5E7A3A', oliveDeep: '#445C28', sage: '#A9B880', rose: '#D2E0A8', ink: '#1A2410', inkSoft: '#44582E', charcoal: '#8A9A6C' }
   };
 
   function applyTheme() {
-    var themeName = Object.prototype.hasOwnProperty.call(themePresets, cfg.theme) ? cfg.theme : 'twilight';
+    var themeName = Object.prototype.hasOwnProperty.call(themePresets, cfg.theme) ? cfg.theme : 'amoris';
     var colors = themePresets[themeName];
     var root = document.documentElement;
     root.style.setProperty('--burgundy', colors.burgundy);
@@ -833,7 +878,8 @@
     if (scene) scene.hidden = false;
     list.innerHTML = items.map(function (item) {
       return '<li class="day-word reveal">' +
-        '<span class="day-word__bulb" aria-hidden="true"></span>' +
+        '<span class="day-word__bulb" aria-hidden="true">' +
+        '<svg viewBox="-12 -12 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M0 -8.8 L 2.3 -2.3 L 8.8 0 L 2.3 2.3 L 0 8.8 L -2.3 2.3 L -8.8 0 L -2.3 -2.3 Z"/><circle cx="0" cy="0" r="1.4"/></svg></span>' +
         '<span class="day-word__text" data-editor-path="moments.' + item.index + '">' +
         escapeHTML(item.word.trim()) + '</span></li>';
     }).join('');
@@ -987,10 +1033,10 @@
       var lines = [
         'BEGIN:VCALENDAR',
         'VERSION:2.0',
-        'PRODID:-//Amoris//Wedding Invitation//EN',
+        'PRODID:-//Kalyanam//Wedding Invitation//EN',
         'CALSCALE:GREGORIAN',
         'BEGIN:VEVENT',
-        'UID:' + icsUTC(data.start.getTime()) + '-amoris@invitation',
+        'UID:' + icsUTC(data.start.getTime()) + '-kalyanam@invitation',
         'DTSTAMP:' + icsUTC(Date.now()),
         'DTSTART:' + icsUTC(data.start.getTime()),
         'DTEND:' + icsUTC(data.end.getTime()),
