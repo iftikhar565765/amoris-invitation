@@ -35,7 +35,7 @@ window.HEIRLOOM = {
     day: "19",                                                               // EDIT — the large numeral
     year: "2027",                                                            // EDIT
     ceremonyLabel: "Holy Matrimony",                                         // EDIT
-    ceremony: "half past four in the afternoon",                             // EDIT
+    ceremony: "at half past four",                             // EDIT
     eventTitle: "Elowen & Finnian — Wedding"                                 // EDIT (calendar entry)
   },
 

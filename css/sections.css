@@ -66,11 +66,11 @@
 
 .noor-stage__shamsa {
   position: absolute;
-  top: 32%;
+  top: 24.5%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: min(100%, 790px);
-  opacity: .45;
+  width: min(100%, 300px);
+  opacity: .3;
   z-index: 0;
   pointer-events: none;
   user-select: none;
@@ -87,6 +87,15 @@
   transform-origin: 50% 0;
   animation: lantern-sway 9s ease-in-out infinite alternate;
 }
+.noor-stage__lantern::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 96%;
+  width: 1px;
+  height: 9rem;
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--champagne) 55%, transparent) 70%, color-mix(in srgb, var(--champagne) 70%, transparent));
+}
 .noor-stage__lantern--l { left: clamp(0rem, 4vw, 5rem); }
 .noor-stage__lantern--r { right: clamp(0rem, 4vw, 5rem); animation-delay: -3.2s; }
 @keyframes lantern-sway {
@@ -94,15 +103,16 @@
   to   { rotate: 2.2deg; }
 }
 
-/* the crescent rides above the arch */
+/* the cross emblem rides above the window */
 .noor-stage__crescent {
   position: relative;
   z-index: 1;
-  width: clamp(3.2rem, 6.4vw, 4.6rem);
+  width: clamp(2.5rem, 5vw, 3.4rem);
   margin-bottom: clamp(.3rem, 1.2vh, .8rem);
   pointer-events: none;
   user-select: none;
 }
+.hero-cross { filter: drop-shadow(0 2px 10px color-mix(in srgb, var(--champagne) 30%, transparent)); }
 
 /* drifting dawn-light motes */
 .noor-stage__mote {
@@ -125,13 +135,13 @@
   to   { transform: translateY(-26px); opacity: var(--o); }
 }
 
-/* ── the arch card — a pishtaq of glazed tile ─────────────────── */
+/* ── the window card — a carved gothic portal holds the letter ── */
 
 .arch-card {
   position: relative;
   z-index: 2;
-  width: min(100%, 540px);
-  aspect-ratio: 1 / 1.18;
+  width: min(100%, 566px);
+  aspect-ratio: 864 / 1140;
   container-type: inline-size;
 }
 
@@ -139,85 +149,88 @@
 .arch-card::before {
   content: "";
   position: absolute;
-  left: 22%;
-  right: 22%;
-  top: 52%;
-  bottom: 6%;
+  left: 26%;
+  right: 27%;
+  top: 27%;
+  bottom: 12%;
   z-index: 1;
   background: color-mix(in srgb, #170A0D 45%, transparent);
   filter: blur(26px);
-  border-radius: 160px 160px 10px 10px;
+  border-radius: 10px;
   pointer-events: none;
 }
 
 .arch-card__frame {
   position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 88%;
-  aspect-ratio: 1 / 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
   pointer-events: none;
   user-select: none;
-  filter: drop-shadow(0 22px 46px color-mix(in srgb, #170A0D 55%, transparent));
+  filter: drop-shadow(0 26px 54px color-mix(in srgb, #170A0D 62%, transparent));
   z-index: 0;
 }
 
-/* the ivory letter — cut to the iwan's own silhouette so it fills
-   the whole window: the ogive head is traced point-for-point from the
-   window's actual curve in the artwork (tip to springline), the sides
-   ride the window body with a whisper of depth, sill just below */
+/* the ivory letter — cut to the window's own pointed silhouette so it
+   fills the whole opening: the ogive head is traced point-for-point from
+   the window's actual curve in the artwork (apex to springline), the
+   sides ride the jambs with a whisper of depth, sill just below */
 .arch-card__inner {
   position: absolute;
-  left: 16.5%;
-  right: 16.5%;
-  top: 47%;
-  bottom: 3%;
+  left: 25.4%;
+  right: 26.1%;
+  top: 24%;
+  bottom: 10.5%;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 7cqw 5.5cqw 5cqw;
+  padding: 6cqw 4.5cqw 5cqw;
   gap: 0;
   background: linear-gradient(180deg,
     var(--paper-raised) 0%,
     var(--ivory) 52%,
     color-mix(in srgb, var(--parchment) 80%, var(--ivory) 20%) 100%);
-  border-radius: 300px 300px 6px 6px;
+  border-radius: 4px;
   box-shadow:
-    inset 0 0 0 1px color-mix(in srgb, var(--champagne) 46%, transparent),
-    inset 0 0 0 5px color-mix(in srgb, var(--paper-raised) 70%, transparent),
-    inset 0 0 0 6px color-mix(in srgb, var(--champagne) 30%, transparent),
-    inset 0 0 40px color-mix(in srgb, var(--burgundy) 8%, transparent),
-    0 26px 60px -22px color-mix(in srgb, #170A0D 58%, transparent);
+    inset 0 0 0 1px color-mix(in srgb, var(--champagne) 42%, transparent),
+    inset 0 0 40px color-mix(in srgb, var(--burgundy) 8%, transparent);
+  clip-path: polygon(50.00% 0.76%, 46.51% 1.35%, 40.97% 2.01%, 35.84% 2.77%, 31.13% 3.61%, 26.83% 4.53%, 22.95% 5.54%, 19.48% 6.64%, 16.43% 7.82%, 13.79% 9.09%, 11.57% 10.44%, 9.76% 11.88%, 8.37% 13.40%, 6.20% 15.41%, 5.49% 15.81%, 4.77% 16.21%, 4.29% 16.61%, 4.05% 17.01%, 3.58% 17.42%, 3.34% 17.82%, 3.10% 18.22%, 2.86% 18.62%, 2.62% 19.02%, 2.62% 19.42%, 2.39% 19.82%, 2.39% 20.23%, 2.15% 20.63%, 2.15% 21.03%, 1.91% 21.43%, 1.91% 21.83%, 1.91% 22.23%, 1.91% 22.63%, 1.67% 23.04%, 1.67% 23.44%, 1.67% 23.84%, 1.67% 24.24%, 1.67% 24.64%, 1.67% 25.04%, 1.67% 25.44%, 1.67% 25.85%, 1.43% 26.25%, 1.43% 26.65%, 1.43% 27.05%, 1.43% 27.45%, 0.00% 100.00%, 100.00% 100.00%, 99.52% 27.45%, 99.52% 27.05%, 99.52% 26.65%, 99.52% 26.25%, 99.52% 25.85%, 99.52% 25.44%, 99.52% 25.04%, 99.28% 24.64%, 99.28% 24.24%, 99.28% 23.84%, 99.28% 23.44%, 99.28% 23.04%, 99.28% 22.63%, 99.28% 22.23%, 99.28% 21.83%, 99.05% 21.43%, 99.05% 21.03%, 99.05% 20.63%, 98.81% 20.23%, 98.81% 19.82%, 98.57% 19.42%, 98.33% 19.02%, 98.33% 18.62%, 98.09% 18.22%, 97.85% 17.82%, 97.61% 17.42%, 97.14% 17.01%, 96.66% 16.61%, 96.18% 16.21%, 95.47% 15.81%, 94.51% 15.41%, 91.63% 13.40%, 90.24% 11.88%, 88.43% 10.44%, 86.21% 9.09%, 83.57% 7.82%, 80.52% 6.64%, 77.05% 5.54%, 73.17% 4.53%, 68.87% 3.61%, 64.16% 2.77%, 59.03% 2.01%, 53.49% 1.35%);
 }
 .arch-card__inner > * { max-width: 100%; }
-.arch-card__inner > * + * { margin-top: clamp(.14rem, .9cqw, .34rem); }
+.arch-card__inner > * + * { margin-top: clamp(.1rem, .7cqw, .28rem); }
 
 .arch-card__bismillah {
   font-family: var(--font-editorial);
   font-style: italic;
-  font-size: clamp(.82rem, 2.6cqw, 1.02rem);
-  line-height: 1.45;
+  font-size: clamp(.88rem, 2.7cqw, 1.1rem);
+  line-height: 1.4;
   color: var(--burgundy);
   margin-bottom: 0;
 }
 
-/* the blessing line now lives with the closing words under the arch —
-   the letter keeps only what a letter carries */
-.arch-card__blessing { display: none; }
+/* the blessing line lives with the closing words under the window */
+.arch-card__blessing {
+  max-width: 78%;
+  font-weight: 600;
+  letter-spacing: .16em;
+  font-size: clamp(.5rem, 2.1cqw, .6rem);
+  line-height: 1.75;
+  color: var(--gold-ink);
+}
 
 .arch-card__invite {
   margin-top: 0;
-  max-width: 84%;
+  max-width: 86%;
   font-family: var(--font-ui);
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: .13em;
-  font-size: clamp(.44rem, 1.8cqw, .54rem);
-  line-height: 1.7;
+  letter-spacing: .15em;
+  font-size: clamp(.5rem, 2.1cqw, .6rem);
+  line-height: 1.62;
   color: var(--ink-soft);
 }
 
@@ -233,8 +246,8 @@
 .arch-card__name {
   font-family: var(--font-script);
   font-weight: 400;
-  font-size: clamp(1.5rem, 6cqw, 2.3rem);
-  line-height: 1.05;
+  font-size: clamp(1.8rem, 6.9cqw, 2.7rem);
+  line-height: 1.06;
   color: var(--burgundy);
   text-shadow: 0 1px 0 color-mix(in srgb, var(--champagne) 30%, transparent);
 }
@@ -261,9 +274,7 @@
 }
 .arch-card__rule i:last-child { transform: scaleX(-1); }
 .arch-card__rule img { width: clamp(1.7rem, 5.6%, 2.2rem); height: auto; opacity: .92; }
-/* the closing rule yields its place to the venue lines — the label
-   under the venue name already carries its own dash ornament */
-.arch-card__rule--end { display: none; }
+.arch-card__rule--end { display: inline-flex; }
 
 .arch-card__date { margin-top: 0; }
 .arch-card__date-week {
@@ -276,7 +287,7 @@
   align-items: baseline;
   justify-content: center;
   gap: .7rem;
-  margin-top: .22rem;
+  margin-top: .12rem;
 }
 .arch-card__date-side {
   color: var(--ink-soft);
@@ -290,16 +301,21 @@
   letter-spacing: .04em;
 }
 
-/* the hour is carried by the countdown, events and particulars —
-   the letter keeps the essence */
-.arch-card__nikah { display: none; }
+/* the hour of the Holy Matrimony sits beneath the date */
+.arch-card__nikah {
+  max-width: 100%;
+  letter-spacing: .12em;
+  font-size: clamp(.46rem, 1.95cqw, .56rem);
+  line-height: 1.75;
+  color: var(--gold-ink);
+}
 .arch-card__nikah-sep { color: var(--gold-line); }
 
 .arch-card__venue {
   margin-top: 0;
   display: flex;
   flex-direction: column;
-  gap: .22rem;
+  gap: .1rem;
 }
 .arch-card__venue-label { display: none; }
 .arch-card__venue-label i {
@@ -326,7 +342,7 @@
   max-width: 30ch;
 }
 
-/* the base — Persian tulips and jasmine anchored to the stage */
+/* the base — crimson roses and ivy anchored to the stage */
 .noor-orn {
   position: absolute;
   pointer-events: none;
@@ -335,12 +351,13 @@
 }
 .noor-orn--roses-bl,
 .noor-orn--roses-br {
-  bottom: -1.4rem;
-  width: clamp(7.4rem, 16vw, 12.4rem);
-  filter: drop-shadow(0 12px 26px color-mix(in srgb, #170A0D 42%, transparent));
+  bottom: -3.4rem;
+  width: clamp(7.6rem, 15vw, 12rem);
+  opacity: .96;
+  filter: saturate(.8) brightness(.97) drop-shadow(0 12px 26px color-mix(in srgb, #170A0D 42%, transparent));
 }
-.noor-orn--roses-bl { left: -1rem; transform: rotate(-4deg); }
-.noor-orn--roses-br { right: -1rem; transform: scaleX(-1) rotate(-4deg); }
+.noor-orn--roses-bl { left: -2.8rem; transform: rotate(-10deg); }
+.noor-orn--roses-br { right: -2.8rem; transform: scaleX(-1) rotate(-10deg); }
 .noor-orn--swag-bl,
 .noor-orn--swag-br {
   bottom: 24%;
@@ -389,14 +406,14 @@
 
 .story-corner {
   position: absolute;
-  width: clamp(6.4rem, 13vw, 10rem);
-  opacity: .92;
+  width: clamp(5.6rem, 11vw, 8.6rem);
+  opacity: .9;
   pointer-events: none;
   user-select: none;
   z-index: 2;
 }
-.story-corner--tl { top: -1rem; left: -1rem; }
-.story-corner--br { bottom: -1rem; right: -1rem; transform: rotate(180deg); }
+.story-corner--tl { top: -2.2rem; left: -2.2rem; transform: rotate(10deg); }
+.story-corner--br { bottom: -2.2rem; right: -2.2rem; transform: rotate(190deg); }
 
 .prose--dropcap { text-align: left; }
 .prose--dropcap::first-letter {
@@ -468,11 +485,11 @@
 
 .ayat-arch {
   position: absolute;
-  top: -6rem;
+  top: -5rem;
   left: 50%;
   transform: translateX(-50%);
-  width: min(120%, 700px);
-  opacity: .2;
+  width: min(100%, 520px);
+  opacity: .18;
   pointer-events: none;
   user-select: none;
 }
@@ -482,7 +499,7 @@
 .ayat-plate {
   position: relative;
   width: min(100%, 640px);
-  padding: clamp(2.4rem, 7vw, 4.2rem) clamp(1.6rem, 6vw, 3.6rem);
+  padding: clamp(2.6rem, 7vw, 4.2rem) clamp(3.2rem, 10vw, 5rem);
   background:
     radial-gradient(90% 70% at 50% 110%,
       color-mix(in srgb, var(--champagne) 12%, transparent) 0%, transparent 62%),
@@ -495,17 +512,18 @@
     0 26px 70px -30px color-mix(in srgb, #170A0D 78%, transparent);
 }
 
-.ayat-plate__corner {
+/* the rose-and-gold frame wraps the scripture plate like a vellum leaf */
+.ayat-plate__frame {
   position: absolute;
-  width: clamp(2.9rem, 7vw, 4.3rem);
-  opacity: .88;
+  inset: -1.7rem -1.7rem -1.7rem -1.7rem;
+  width: calc(100% + 3.4rem);
+  height: calc(100% + 3.4rem);
+  object-fit: fill;
+  opacity: .96;
   pointer-events: none;
-  filter: saturate(.82) brightness(.96);
+  user-select: none;
+  filter: drop-shadow(0 18px 40px color-mix(in srgb, #170A0D 55%, transparent)) saturate(.9) brightness(.98);
 }
-.ayat-plate__corner--tl { top: -.9rem; left: -.9rem; }
-.ayat-plate__corner--tr { top: -.9rem; right: -.9rem; transform: scaleX(-1); }
-.ayat-plate__corner--bl { bottom: -.9rem; left: -.9rem; transform: scaleY(-1); }
-.ayat-plate__corner--br { bottom: -.9rem; right: -.9rem; transform: scale(-1, -1); }
 
 .ayat-arabic {
   font-family: var(--font-editorial);
@@ -712,9 +730,10 @@
 .event__numeral {
   font-family: var(--font-editorial);
   font-style: italic;
-  font-size: clamp(1.05rem, 3vw, 1.3rem);
+  font-size: clamp(1.15rem, 3.2vw, 1.45rem);
   letter-spacing: .08em;
   color: var(--gilding);
+  text-shadow: 0 0 14px color-mix(in srgb, var(--champagne) 45%, transparent);
   line-height: 1;
 }
 .event__node--prime { overflow: visible; }
@@ -1172,8 +1191,8 @@
 
 .closing-bloom--r {
   position: absolute;
-  top: 4%;
-  right: -1%;
+  top: -3rem;
+  right: -3.2rem;
   width: clamp(110px, 15vw, 190px);
   transform: scaleX(-1);
   opacity: .85;

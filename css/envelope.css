@@ -33,21 +33,21 @@
   to { opacity: 0; }
 }
 
-/* ── the gemstone-inlay cascades at the night's edge ──────────── */
+/* ── the crimson rose garlands anchoring the night's edges ───── */
 .opening__blossoms { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
 
 .opening__florals {
   position: absolute;
-  width: clamp(11rem, 24vw, 17rem);
-  opacity: .95;
+  width: clamp(8.4rem, 17vw, 12.6rem);
+  opacity: .92;
   pointer-events: none;
   user-select: none;
   filter: drop-shadow(0 4px 14px rgba(2, 12, 9, .5));
 }
-.opening__florals--tl { top: -2.4rem; left: -2.4rem; transform: rotate(-4deg); }
-.opening__florals--tr { top: -2.4rem; right: -2.4rem; transform: scaleX(-1) rotate(-4deg); }
-.opening__florals--bl { bottom: -2.4rem; left: -2.4rem; transform: scaleY(-1) rotate(-4deg); opacity: .5; }
-.opening__florals--br { bottom: -2.4rem; right: -2.4rem; transform: scale(-1, -1) rotate(-4deg); opacity: .5; }
+.opening__florals--tl { top: -2.6rem; left: -2.6rem; transform: rotate(9deg); }
+.opening__florals--tr { top: -2.6rem; right: -2.6rem; transform: scaleX(-1) rotate(9deg); }
+.opening__florals--bl { bottom: -2.8rem; left: -2.2rem; transform: scaleY(-1) rotate(-7deg); opacity: .55; }
+.opening__florals--br { bottom: -2.8rem; right: -2.2rem; transform: scale(-1, -1) rotate(-7deg); opacity: .55; }
 
 /* ── drifting pearl motes ─────────────────────────────────────── */
 .opening__mote {
@@ -95,14 +95,14 @@
   position: absolute;
   z-index: 0;
   left: 50%;
-  top: 42%;
+  top: 33%;
   transform: translate(-50%, -50%);
   font-family: var(--font-editorial);
   font-style: italic;
-  font-size: clamp(3rem, 9vw, 6.6rem);
-  line-height: 1.6;
+  font-size: clamp(2.6rem, 7.4vw, 5.4rem);
+  line-height: 1.5;
   white-space: nowrap;
-  color: color-mix(in srgb, var(--champagne) 9%, transparent);
+  color: color-mix(in srgb, var(--champagne) 11%, transparent);
   pointer-events: none;
   user-select: none;
 }
@@ -164,8 +164,11 @@
 /* the shamsa rosette glowing behind the envelope */
 .envelope-lace {
   position: absolute;
-  width: 128%;
-  opacity: .42;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 118%;
+  opacity: .34;
   pointer-events: none;
   user-select: none;
 }

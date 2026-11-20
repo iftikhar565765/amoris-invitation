@@ -43,6 +43,8 @@
       'wedding.year': w.year,
       'wedding.muhurat': w.muhurat,
       'wedding.muhuratLabel': w.muhuratLabel,
+      'wedding.ceremony': w.ceremony,
+      'wedding.ceremonyLabel': w.ceremonyLabel,
       'venue.name': v.name,
       'venue.address': v.address,
       'rsvp.deadline': r.deadline
@@ -109,6 +111,8 @@
     'wedding.words': 'wedding.words',
     'wedding.numerals': 'wedding.numerals',
     'wedding.zoneLabel': 'wedding.zoneLabel',
+    'wedding.ceremony': 'wedding.ceremony',
+    'wedding.ceremonyLabel': 'wedding.ceremonyLabel',
     'venue.name': 'venue.name',
     'venue.address': 'venue.address',
     'rsvp.deadline': 'rsvp.deadline'

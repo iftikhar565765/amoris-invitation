@@ -1,43 +1,34 @@
 <!DOCTYPE html><html><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Prata&family=Great+Vibes&family=Cormorant+Garamond:ital@0;1&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Alex+Brush&family=Cormorant+Garamond:ital@0;1&family=Jost:wght@300;400&display=swap" rel="stylesheet">
 <style>
-body { margin:0; width:1200px; height:630px; overflow:hidden; background:#FBF3EF; }
+body { margin:0; width:1200px; height:630px; overflow:hidden; background:#2E1218; }
 .cover { width:1200px; height:630px; position:relative;
   background:
-    radial-gradient(110% 90% at 50% -12%, #FBE4D4 0%, rgba(251,228,212,0) 46%),
-    radial-gradient(120% 90% at 50% 116%, #F6DCE2 0%, rgba(246,220,226,0) 52%),
-    radial-gradient(90% 80% at -6% 44%, #F0E3E0 0%, rgba(240,227,224,0) 55%),
-    radial-gradient(90% 80% at 106% 46%, #E9EDE3 0%, rgba(233,237,227,0) 55%),
-    linear-gradient(180deg, #FBF3EF 0%, #F6EAE4 100%);
-  display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
-.glow { position:absolute; top:10px; left:50%; transform:translateX(-50%);
-  width:620px; height:620px; border-radius:50%;
-  background:radial-gradient(circle, rgba(226,183,158,.32) 0%, rgba(193,138,112,.10) 42%, transparent 68%); }
-.vine { position:absolute; opacity:.5; }
-.vl { left:-26px; top:-30px; }
-.vr { right:-30px; top:-24px; transform:scaleX(-1); }
-.swing { position:relative; width:252px; filter:drop-shadow(0 16px 34px rgba(91,54,68,.20)); margin-top:0; }
-.eyebrow { font-family:'Jost',sans-serif; font-weight:300; font-size:15px; letter-spacing:.4em; text-transform:uppercase; color:#AC8049; margin-top:10px; }
-.names { font-family:'Prata',serif; font-size:54px; letter-spacing:.04em; color:#5B3644; margin-top:10px; }
-.names .amp { font-family:'Great Vibes',cursive; color:#AC8049; font-size:52px; padding:0 14px; }
-.line { width:430px; height:1px; margin:14px 0 12px;
-  background:linear-gradient(90deg, transparent, rgba(193,155,99,.8), transparent); position:relative; }
-.line i { position:absolute; left:50%; top:-4.5px; width:9px; height:9px; transform:translateX(-50%) rotate(45deg);
-  border:1px solid rgba(172,128,73,.85); background:#FFFCFA; }
-.date { font-family:'Jost',sans-serif; font-weight:300; font-size:19px; letter-spacing:.44em; text-transform:uppercase; color:#AC8049; }
-.sub { margin-top:10px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:21px; color:#7C5964; }
-.wordmark { position:absolute; bottom:24px; left:0; right:0; font-family:'Jost',sans-serif;
-  font-weight:300; font-size:12px; letter-spacing:.5em; text-transform:uppercase; color:#B08D96; }
+    radial-gradient(105% 88% at 50% -10%, #4A1F2A 0%, rgba(74,31,42,0) 52%),
+    radial-gradient(120% 86% at 50% 114%, #5A1C2A 0%, rgba(90,28,42,0) 46%),
+    linear-gradient(180deg, #33141C 0%, #2E1218 58%, #3E1820 100%);
+  display:flex; flex-direction:column; align-items:center; text-align:center; }
+.glow { position:absolute; top:-160px; left:50%; transform:translateX(-50%);
+  width:700px; height:700px; border-radius:50%;
+  background:radial-gradient(circle, rgba(201,162,75,.18) 0%, rgba(201,162,75,.06) 44%, transparent 68%); }
+.medallion { position:absolute; top:-84px; left:50%; transform:translateX(-50%); width:210px; opacity:.6; }
+.cross { position:absolute; top:52px; left:50%; transform:translateX(-50%); width:44px; opacity:.9; }
+.window { position:absolute; top:452px; left:50%; transform:translateX(-50%);
+  width:620px; opacity:.92; filter:drop-shadow(0 -8px 40px rgba(0,0,0,.35)); }
+.eyebrow { position:relative; font-family:'Jost',sans-serif; font-weight:300; font-size:15px; letter-spacing:.42em; text-transform:uppercase; color:#D2A447; margin-top:206px; }
+.names { position:relative; font-family:'Alex Brush',cursive; font-size:92px; line-height:1; color:#F3E9D8; margin-top:8px; text-shadow:0 2px 30px rgba(210,164,71,.4); }
+.date { position:relative; font-family:'Jost',sans-serif; font-weight:300; font-size:17px; letter-spacing:.46em; text-transform:uppercase; color:#C9A24B; margin-top:14px; }
+.sub { position:relative; margin-top:8px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:20px; color:#D8C29A; }
+.wordmark { position:absolute; bottom:14px; left:0; right:0; font-family:'Jost',sans-serif;
+  font-weight:300; font-size:11px; letter-spacing:.5em; text-transform:uppercase; color:#D8C29A; }
 </style></head>
 <body><div class="cover">
   <div class="glow"></div>
-  <img class="vine vl" src="assets/orn/understory-left.svg" width="380" alt="">
-  <img class="vine vr" src="assets/orn/understory-right.svg" width="360" alt="">
-  <img class="swing" src="assets/art/swing-couple.png" alt="">
-  <div class="eyebrow">Together with their families</div>
-  <div class="names">Elowen <span class="amp">&amp;</span> Finnian</div>
-  <div class="line"><i></i></div>
+  <img class="medallion" src="assets/art/rosette-amoris.png" alt="">
+  <img class="window" src="assets/art/window-amoris-tall.png" alt="">
+  <div class="eyebrow">The Holy Matrimony of</div>
+  <div class="names">Elowen &amp; Finnian</div>
   <div class="date">19 · 06 · 2027</div>
-  <div class="sub">an afternoon of roses, ribbons and dancing until the stars come out</div>
+  <div class="sub">I have found the one whom my soul loves — Song of Songs 3:4</div>
   <div class="wordmark">Amoris · Invitation Atelier</div>
 </div></body></html>
