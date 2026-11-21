@@ -69,8 +69,9 @@
   top: 24.5%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: min(100%, 300px);
-  opacity: .3;
+  width: min(100%, 340px);
+  opacity: .5;
+  filter: drop-shadow(0 0 44px color-mix(in srgb, var(--champagne) 30%, transparent));
   z-index: 0;
   pointer-events: none;
   user-select: none;
@@ -140,8 +141,8 @@
 .arch-card {
   position: relative;
   z-index: 2;
-  width: min(100%, 566px);
-  aspect-ratio: 864 / 1140;
+  width: min(100%, 480px);
+  aspect-ratio: 574 / 1000;
   container-type: inline-size;
 }
 
@@ -149,9 +150,9 @@
 .arch-card::before {
   content: "";
   position: absolute;
-  left: 26%;
-  right: 27%;
-  top: 27%;
+  left: 21%;
+  right: 15%;
+  top: 25%;
   bottom: 12%;
   z-index: 1;
   background: color-mix(in srgb, #170A0D 45%, transparent);
@@ -178,10 +179,10 @@
    sides ride the jambs with a whisper of depth, sill just below */
 .arch-card__inner {
   position: absolute;
-  left: 25.4%;
-  right: 26.1%;
-  top: 24%;
-  bottom: 10.5%;
+  left: 17.43%;
+  right: 10.98%;
+  top: 21.5%;
+  bottom: 8.4%;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -198,7 +199,7 @@
   box-shadow:
     inset 0 0 0 1px color-mix(in srgb, var(--champagne) 42%, transparent),
     inset 0 0 40px color-mix(in srgb, var(--burgundy) 8%, transparent);
-  clip-path: polygon(50.00% 0.76%, 46.51% 1.35%, 40.97% 2.01%, 35.84% 2.77%, 31.13% 3.61%, 26.83% 4.53%, 22.95% 5.54%, 19.48% 6.64%, 16.43% 7.82%, 13.79% 9.09%, 11.57% 10.44%, 9.76% 11.88%, 8.37% 13.40%, 6.20% 15.41%, 5.49% 15.81%, 4.77% 16.21%, 4.29% 16.61%, 4.05% 17.01%, 3.58% 17.42%, 3.34% 17.82%, 3.10% 18.22%, 2.86% 18.62%, 2.62% 19.02%, 2.62% 19.42%, 2.39% 19.82%, 2.39% 20.23%, 2.15% 20.63%, 2.15% 21.03%, 1.91% 21.43%, 1.91% 21.83%, 1.91% 22.23%, 1.91% 22.63%, 1.67% 23.04%, 1.67% 23.44%, 1.67% 23.84%, 1.67% 24.24%, 1.67% 24.64%, 1.67% 25.04%, 1.67% 25.44%, 1.67% 25.85%, 1.43% 26.25%, 1.43% 26.65%, 1.43% 27.05%, 1.43% 27.45%, 0.00% 100.00%, 100.00% 100.00%, 99.52% 27.45%, 99.52% 27.05%, 99.52% 26.65%, 99.52% 26.25%, 99.52% 25.85%, 99.52% 25.44%, 99.52% 25.04%, 99.28% 24.64%, 99.28% 24.24%, 99.28% 23.84%, 99.28% 23.44%, 99.28% 23.04%, 99.28% 22.63%, 99.28% 22.23%, 99.28% 21.83%, 99.05% 21.43%, 99.05% 21.03%, 99.05% 20.63%, 98.81% 20.23%, 98.81% 19.82%, 98.57% 19.42%, 98.33% 19.02%, 98.33% 18.62%, 98.09% 18.22%, 97.85% 17.82%, 97.61% 17.42%, 97.14% 17.01%, 96.66% 16.61%, 96.18% 16.21%, 95.47% 15.81%, 94.51% 15.41%, 91.63% 13.40%, 90.24% 11.88%, 88.43% 10.44%, 86.21% 9.09%, 83.57% 7.82%, 80.52% 6.64%, 77.05% 5.54%, 73.17% 4.53%, 68.87% 3.61%, 64.16% 2.77%, 59.03% 2.01%, 53.49% 1.35%);
+  clip-path: polygon(45.50% 0.00%, 13.39% 6.42%, 13.32% 6.42%, 12.66% 8.70%, 7.47% 10.98%, 6.81% 13.27%, 6.81% 15.55%, 5.46% 17.83%, 1.32% 20.11%, 0.28% 22.40%, 0.00% 24.68%, 0.00% 26.96%, 0.00% 29.24%, 0.00% 31.53%, 0.00% 33.81%, 0.00% 36.09%, 0.00% 38.37%, 0.00% 40.66%, 0.00% 42.94%, 0.00% 45.22%, 0.00% 47.50%, 0.00% 49.79%, 0.00% 52.07%, 0.00% 54.35%, 0.00% 56.63%, 0.00% 58.92%, 0.00% 61.20%, 0.00% 63.48%, 0.00% 65.76%, 0.00% 68.04%, 0.00% 70.32%, 0.00% 72.61%, 0.00% 74.89%, 0.00% 77.17%, 0.00% 79.45%, 0.00% 81.73%, 0.00% 84.01%, 0.00% 86.30%, 0.00% 88.58%, 0.00% 90.86%, 0.00% 93.14%, 0.00% 95.42%, 0.00% 97.70%, 0.00% 100.00%, 100.00% 100.00%, 98.78% 97.70%, 98.78% 95.42%, 98.78% 93.14%, 98.78% 90.86%, 98.78% 88.58%, 98.78% 86.30%, 98.78% 84.01%, 98.78% 81.73%, 98.78% 79.45%, 98.78% 77.17%, 98.78% 74.89%, 98.78% 72.61%, 98.78% 70.32%, 98.78% 68.04%, 98.78% 65.76%, 98.78% 63.48%, 98.78% 61.20%, 98.78% 58.92%, 98.78% 56.63%, 98.78% 54.35%, 98.78% 52.07%, 98.78% 49.79%, 98.78% 47.50%, 98.78% 45.22%, 98.78% 42.94%, 98.78% 40.66%, 98.78% 38.37%, 98.78% 36.09%, 98.78% 33.81%, 98.78% 31.53%, 98.78% 29.24%, 98.78% 26.96%, 98.78% 24.68%, 95.86% 22.40%, 88.04% 20.11%, 84.29% 17.83%, 83.21% 15.55%, 83.21% 13.27%, 82.72% 10.98%, 77.37% 8.70%, 76.78% 6.42%, 76.88% 6.42%, 45.50% 0.00%);
 }
 .arch-card__inner > * { max-width: 100%; }
 .arch-card__inner > * + * { margin-top: clamp(.1rem, .7cqw, .28rem); }
@@ -214,11 +215,12 @@
 
 /* the blessing line lives with the closing words under the window */
 .arch-card__blessing {
-  max-width: 78%;
+  max-width: 88%;
+  margin-top: .5cqw;
   font-weight: 600;
-  letter-spacing: .16em;
-  font-size: clamp(.5rem, 2.1cqw, .6rem);
-  line-height: 1.75;
+  letter-spacing: .13em;
+  font-size: clamp(.5rem, 1.9cqw, .58rem);
+  line-height: 1.8;
   color: var(--gold-ink);
 }
 
@@ -478,8 +480,8 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: url("../assets/art/tiles-amoris.jpg") center / 520px repeat;
-  opacity: .07;
+  background: url("../assets/art/scene-dusk.jpg") center / cover;
+  opacity: .1;
   pointer-events: none;
 }
 
@@ -489,7 +491,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: min(100%, 520px);
-  opacity: .18;
+  opacity: .3;
   pointer-events: none;
   user-select: none;
 }
@@ -498,8 +500,8 @@
 
 .ayat-plate {
   position: relative;
-  width: min(100%, 640px);
-  padding: clamp(2.6rem, 7vw, 4.2rem) clamp(3.2rem, 10vw, 5rem);
+  width: min(100%, 720px);
+  padding: 13% 16% 13%;
   background:
     radial-gradient(90% 70% at 50% 110%,
       color-mix(in srgb, var(--champagne) 12%, transparent) 0%, transparent 62%),
@@ -515,9 +517,9 @@
 /* the rose-and-gold frame wraps the scripture plate like a vellum leaf */
 .ayat-plate__frame {
   position: absolute;
-  inset: -1.7rem -1.7rem -1.7rem -1.7rem;
-  width: calc(100% + 3.4rem);
-  height: calc(100% + 3.4rem);
+  inset: -1.3rem;
+  width: calc(100% + 2.6rem);
+  height: calc(100% + 2.6rem);
   object-fit: fill;
   opacity: .96;
   pointer-events: none;
@@ -549,9 +551,10 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  margin-top: clamp(1.2rem, 3vh, 1.7rem);
-  color: var(--gilding-soft);
-  font-size: clamp(.56rem, 1.6vw, .68rem);
+  margin-top: clamp(1.1rem, 2.6vh, 1.5rem);
+  color: color-mix(in srgb, var(--gilding) 88%, transparent);
+  font-size: clamp(.6rem, 1.7vw, .72rem);
+  letter-spacing: .22em;
 }
 .ayat-reference i {
   display: block;
@@ -596,18 +599,19 @@
 
 /* the dome miniature — dawn light set into a lagoon plaque */
 .std-emblem {
-  width: clamp(7rem, 15vw, 10rem);
-  aspect-ratio: 3 / 2;
+  width: clamp(6.6rem, 14vw, 8.6rem);
+  aspect-ratio: 1;
   object-fit: contain;
-  padding: .55rem 1rem;
+  padding: .45rem;
   background:
     radial-gradient(120% 120% at 50% 24%,
       color-mix(in srgb, var(--champagne) 16%, var(--night)) 0%,
-      var(--night-deep) 68%);
+      var(--night-deep) 72%);
   border-radius: 999px;
   box-shadow:
-    inset 0 0 0 1px color-mix(in srgb, var(--champagne) 52%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--champagne) 56%, transparent),
     inset 0 0 0 4px color-mix(in srgb, var(--champagne) 10%, transparent),
+    0 0 34px -6px color-mix(in srgb, var(--champagne) 30%, transparent),
     0 12px 26px -10px color-mix(in srgb, #170A0D 48%, transparent);
 }
 
@@ -718,22 +722,23 @@
   aspect-ratio: 1;
   border-radius: 999px;
   background:
-    radial-gradient(120% 120% at 50% 22%,
-      color-mix(in srgb, var(--champagne) 26%, var(--night)) 0%,
-      var(--night-deep) 74%);
+    radial-gradient(120% 120% at 50% 18%,
+      var(--paper-raised) 0%,
+      color-mix(in srgb, var(--parchment) 82%, var(--champagne)) 68%,
+      color-mix(in srgb, var(--champagne) 46%, var(--parchment)) 100%);
   box-shadow:
-    inset 0 0 0 1px color-mix(in srgb, var(--champagne) 62%, transparent),
-    inset 0 0 0 5px color-mix(in srgb, var(--champagne) 10%, transparent),
-    0 0 0 6px color-mix(in srgb, var(--champagne) 9%, transparent),
-    0 10px 22px -10px color-mix(in srgb, #170A0D 55%, transparent);
+    inset 0 0 0 1px color-mix(in srgb, var(--gold-ink) 56%, transparent),
+    inset 0 0 0 5px var(--ivory),
+    inset 0 0 0 6px color-mix(in srgb, var(--champagne) 52%, transparent),
+    0 10px 22px -10px color-mix(in srgb, #170A0D 38%, transparent);
 }
 .event__numeral {
   font-family: var(--font-editorial);
   font-style: italic;
   font-size: clamp(1.15rem, 3.2vw, 1.45rem);
   letter-spacing: .08em;
-  color: var(--gilding);
-  text-shadow: 0 0 14px color-mix(in srgb, var(--champagne) 45%, transparent);
+  color: var(--burgundy);
+  text-shadow: none;
   line-height: 1;
 }
 .event__node--prime { overflow: visible; }
@@ -909,13 +914,13 @@
   overflow: hidden;
 }
 
-/* the same whisper of girih tilework the other lagoons carry */
+/* a whisper of the dusk cathedral across the itinerary lagoon */
 .scene--itinerary::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("../assets/art/tiles-amoris.jpg") center / 520px repeat;
-  opacity: .06;
+  background: url("../assets/art/scene-dusk.jpg") center / cover;
+  opacity: .08;
   pointer-events: none;
 }
 
@@ -993,8 +998,9 @@
 }
 .venue-arch__medallion {
   position: absolute;
-  width: 44%;
-  filter: drop-shadow(0 8px 22px rgba(0, 0, 0, .5));
+  width: 46%;
+  filter: drop-shadow(0 8px 22px rgba(0, 0, 0, .5))
+    drop-shadow(0 0 34px color-mix(in srgb, var(--champagne) 26%, transparent));
 }
 
 .venue-description { margin-top: clamp(1.8rem, 4.5vh, 2.4rem); }
@@ -1155,7 +1161,7 @@
   color: var(--ink-soft);
 }
 
-.rsvp-ornament { max-width: 340px; margin: 1.4rem auto 0; }
+.rsvp-ornament { max-width: 210px; margin: 1.3rem auto 0; opacity: .92; }
 .rsvp-ornament__img { width: 100%; height: auto; display: block; }
 
 /* ═══ A CLOSING DUA — beneath the dawn-lit dome ═════════════════ */

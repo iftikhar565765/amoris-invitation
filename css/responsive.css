@@ -2,11 +2,6 @@
    AMORIS · dawn over the Registan — responsive
    ═══════════════════════════════════════════════════════════════ */
 
-@media (max-width: 1024px) {
-  .noor-stage__lantern--l { left: -0.4rem; }
-  .noor-stage__lantern--r { right: -0.4rem; }
-}
-
 @media (max-width: 760px) {
   .closing-plate { width: min(260px, 72%); }
   .closing-bloom--r { width: clamp(90px, 22vw, 140px); top: 3%; }
@@ -22,21 +17,13 @@
 }
 
 @media (max-width: 560px) {
-  /* the narrow letter tightens: the rules and the venue label yield,
-     the essentials remain — blessing, invite, names, date, hour */
+  /* the narrow letter tightens: the rules yield,
+     the essentials remain — verse, blessing, invite, names, date, hour */
   .arch-card__rule { display: none; }
-  .arch-card__blessing { display: none; }
-  .arch-card__bismillah { display: none; }
-  .arch-card__venue-label { display: none; }
   .arch-card__venue-address { display: none; }
   .arch-card__invite { letter-spacing: .09em; max-width: 88%; }
   .moon-card__name { font-size: clamp(2rem, 8vw, 2.5rem); }
   .opening__florals { width: clamp(7rem, 26vw, 10rem); }
-  .opening__lantern--l { left: .2rem; }
-  .opening__lantern--r { right: .2rem; }
-  .noor-stage__lantern { width: clamp(3.6rem, 13vw, 5rem); top: -1.6rem; }
-  .noor-stage__lantern--l { left: -.2rem; }
-  .noor-stage__lantern--r { right: -.2rem; }
   .arch-card__names { font-size: inherit; }
   .story-corner { width: clamp(4.2rem, 18vw, 6.4rem); }
   .count-clock { flex-wrap: wrap; gap: 1.1rem 1.6rem; }
@@ -46,5 +33,10 @@
   .day-words { gap: 1rem 1.6rem; }
   .noor-orn--roses-bl { left: -2.4rem; }
   .noor-orn--roses-br { right: -2.4rem; }
-  .ayat-plate__frame { inset: -1.1rem; width: calc(100% + 2.2rem); height: calc(100% + 2.2rem); }
+  /* the baroque frame yields to the clean gold-ringed plaque on small screens */
+  .ayat-plate { padding: 2.2rem 1.7rem 2rem; }
+  .ayat-plate__frame { display: none; }
+  .ayat-arabic { font-size: clamp(1.02rem, 4.4vw, 1.2rem); line-height: 1.65; }
+  .ayat-translation { font-size: clamp(.88rem, 3.6vw, .98rem); }
+  .ayat-reference { margin-top: 1rem; }
 }
