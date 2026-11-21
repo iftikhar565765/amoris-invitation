@@ -150,10 +150,10 @@
 .arch-card::before {
   content: "";
   position: absolute;
-  left: 21%;
-  right: 15%;
-  top: 25%;
-  bottom: 12%;
+  left: 12%;
+  right: 12.5%;
+  top: 43%;
+  bottom: 8.5%;
   z-index: 1;
   background: color-mix(in srgb, #170A0D 45%, transparent);
   filter: blur(26px);
@@ -173,23 +173,25 @@
   z-index: 0;
 }
 
-/* the ivory letter — cut to the window's own pointed silhouette so it
-   fills the whole opening: the ogive head is traced point-for-point from
-   the window's actual curve in the artwork (apex to springline), the
-   sides ride the jambs with a whisper of depth, sill just below */
+/* the ivory letter — a clean ogive floating in the lower window, its
+   geometry rebuilt from the five-lancet artwork itself: the sides sit
+   flush inside the jamb faces (60..511 of 574), the gothic head springs
+   at y 640 and rises to an apex at y 440 that clears every tracery head
+   (quatrefoil, trefoils and lancet points all stay visible above), and
+   a champagne hairline rim traces the curve via drop-shadow */
 .arch-card__inner {
   position: absolute;
-  left: 17.43%;
-  right: 10.98%;
-  top: 21.5%;
-  bottom: 8.4%;
+  left: 10.453%;
+  right: 10.976%;
+  top: 44%;
+  bottom: 6%;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 6cqw 4.5cqw 5cqw;
+  padding: 5cqw 5cqw 5.5cqw;
   gap: 0;
   background: linear-gradient(180deg,
     var(--paper-raised) 0%,
@@ -199,7 +201,10 @@
   box-shadow:
     inset 0 0 0 1px color-mix(in srgb, var(--champagne) 42%, transparent),
     inset 0 0 40px color-mix(in srgb, var(--burgundy) 8%, transparent);
-  clip-path: polygon(45.50% 0.00%, 13.39% 6.42%, 13.32% 6.42%, 12.66% 8.70%, 7.47% 10.98%, 6.81% 13.27%, 6.81% 15.55%, 5.46% 17.83%, 1.32% 20.11%, 0.28% 22.40%, 0.00% 24.68%, 0.00% 26.96%, 0.00% 29.24%, 0.00% 31.53%, 0.00% 33.81%, 0.00% 36.09%, 0.00% 38.37%, 0.00% 40.66%, 0.00% 42.94%, 0.00% 45.22%, 0.00% 47.50%, 0.00% 49.79%, 0.00% 52.07%, 0.00% 54.35%, 0.00% 56.63%, 0.00% 58.92%, 0.00% 61.20%, 0.00% 63.48%, 0.00% 65.76%, 0.00% 68.04%, 0.00% 70.32%, 0.00% 72.61%, 0.00% 74.89%, 0.00% 77.17%, 0.00% 79.45%, 0.00% 81.73%, 0.00% 84.01%, 0.00% 86.30%, 0.00% 88.58%, 0.00% 90.86%, 0.00% 93.14%, 0.00% 95.42%, 0.00% 97.70%, 0.00% 100.00%, 100.00% 100.00%, 98.78% 97.70%, 98.78% 95.42%, 98.78% 93.14%, 98.78% 90.86%, 98.78% 88.58%, 98.78% 86.30%, 98.78% 84.01%, 98.78% 81.73%, 98.78% 79.45%, 98.78% 77.17%, 98.78% 74.89%, 98.78% 72.61%, 98.78% 70.32%, 98.78% 68.04%, 98.78% 65.76%, 98.78% 63.48%, 98.78% 61.20%, 98.78% 58.92%, 98.78% 56.63%, 98.78% 54.35%, 98.78% 52.07%, 98.78% 49.79%, 98.78% 47.50%, 98.78% 45.22%, 98.78% 42.94%, 98.78% 40.66%, 98.78% 38.37%, 98.78% 36.09%, 98.78% 33.81%, 98.78% 31.53%, 98.78% 29.24%, 98.78% 26.96%, 98.78% 24.68%, 95.86% 22.40%, 88.04% 20.11%, 84.29% 17.83%, 83.21% 15.55%, 83.21% 13.27%, 82.72% 10.98%, 77.37% 8.70%, 76.78% 6.42%, 76.88% 6.42%, 45.50% 0.00%);
+  filter:
+    drop-shadow(0 1px 0 color-mix(in srgb, var(--champagne) 55%, transparent))
+    drop-shadow(0 22px 46px color-mix(in srgb, #170A0D 55%, transparent));
+  clip-path: polygon(50.00% 0.00%, 48.69% 2.17%, 47.16% 4.08%, 45.45% 5.74%, 43.56% 7.19%, 41.52% 8.45%, 39.34% 9.54%, 37.06% 10.49%, 34.69% 11.33%, 32.25% 12.08%, 29.76% 12.77%, 27.24% 13.42%, 24.72% 14.07%, 22.20% 14.72%, 19.73% 15.42%, 17.30% 16.19%, 14.96% 17.05%, 12.70% 18.03%, 10.57% 19.15%, 8.57% 20.44%, 6.73% 21.93%, 5.07% 23.64%, 3.61% 25.60%, 2.36% 27.83%, 1.36% 30.36%, 0.62% 33.21%, 0.16% 36.42%, 0.00% 40.00%, 0.00% 100.00%, 100.00% 100.00%, 100.00% 40.00%, 99.84% 36.42%, 99.38% 33.21%, 98.64% 30.36%, 97.64% 27.83%, 96.39% 25.60%, 94.93% 23.64%, 93.27% 21.93%, 91.43% 20.44%, 89.43% 19.15%, 87.30% 18.03%, 85.04% 17.05%, 82.70% 16.19%, 80.27% 15.42%, 77.80% 14.72%, 75.28% 14.07%, 72.76% 13.42%, 70.24% 12.77%, 67.75% 12.08%, 65.31% 11.33%, 62.94% 10.49%, 60.66% 9.54%, 58.48% 8.45%, 56.44% 7.19%, 54.55% 5.74%, 52.84% 4.08%, 51.31% 2.17%, 50.00% 0.00%);
 }
 .arch-card__inner > * { max-width: 100%; }
 .arch-card__inner > * + * { margin-top: clamp(.1rem, .7cqw, .28rem); }
@@ -208,9 +213,12 @@
   font-family: var(--font-editorial);
   font-style: italic;
   font-size: clamp(.88rem, 2.7cqw, 1.1rem);
-  line-height: 1.4;
+  line-height: 1.5;
   color: var(--burgundy);
   margin-bottom: 0;
+  /* stay inside the ogive head — the curve is narrowest at the top,
+     so the verse wraps gracefully instead of crossing the gilt edge */
+  max-width: 62cqw;
 }
 
 /* the blessing line lives with the closing words under the window */

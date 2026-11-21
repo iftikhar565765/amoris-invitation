@@ -14,6 +14,7 @@
   .event__note { max-width: 100%; }
 
   .arch-card { width: min(100%, 470px); }
+  .arch-card__inner { padding: 8cqw 6cqw 6cqw; }
 }
 
 @media (max-width: 560px) {
@@ -22,6 +23,12 @@
   .arch-card__rule { display: none; }
   .arch-card__venue-address { display: none; }
   .arch-card__invite { letter-spacing: .09em; max-width: 88%; }
+  /* the stack must sit low enough that the verse clears the narrow
+     ogive head: smaller floors pull the centred stack downward */
+  .arch-card__bismillah { font-size: .8rem; max-width: 58cqw; }
+  .arch-card__name { font-size: clamp(1.5rem, 6.9cqw, 2.7rem); }
+  .arch-card__date-num { font-size: clamp(1.02rem, 4.6cqw, 1.5rem); }
+  .arch-card__venue-name { font-size: .78rem; }
   .moon-card__name { font-size: clamp(2rem, 8vw, 2.5rem); }
   .opening__florals { width: clamp(7rem, 26vw, 10rem); }
   .arch-card__names { font-size: inherit; }
