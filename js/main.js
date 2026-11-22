@@ -1112,6 +1112,14 @@
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
     reveals.forEach(function (el) { io.observe(el); });
+
+    /* the letter is one full-screen fold — its last lines sit inside
+       the observer's -8% margin band on load, so hand the whole letter
+       its cascade at once instead of leaving the venue hidden */
+    Array.prototype.forEach.call(
+      document.querySelectorAll('.arch-card__inner .reveal'),
+      function (el) { el.classList.add('in-view'); io.unobserve(el); }
+    );
   })();
 
   /* ══ 9 · A BREATH OF PARALLAX (GSAP only, never essential) ═════ */

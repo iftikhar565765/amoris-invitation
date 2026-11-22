@@ -21,15 +21,16 @@
   .arch-card__invite { letter-spacing: .09em; max-width: 88%; }
   .moon-card__name { font-size: clamp(2rem, 8vw, 2.5rem); }
   .opening__florals { width: clamp(7rem, 26vw, 10rem); }
-  .arch-card__names { font-size: inherit; }
+  /* full-screen window: nothing floats over the edge-to-edge stone */
+  .noor-stage__lantern,
+  .noor-orn--roses-bl,
+  .noor-orn--roses-br { display: none; }
   .story-corner { width: clamp(4.2rem, 18vw, 6.4rem); }
   .count-clock { flex-wrap: wrap; gap: 1.1rem 1.6rem; }
   .count-unit { min-width: 4.4rem; }
   .watermark-script { font-size: clamp(5rem, 26vw, 9rem); right: -.6rem; }
   .std-actions .btn { width: min(280px, 82vw); }
   .day-words { gap: 1rem 1.6rem; }
-  .noor-orn--roses-bl { left: -2.4rem; }
-  .noor-orn--roses-br { right: -2.4rem; }
   /* the baroque frame yields to the clean gold-ringed plaque on small screens */
   .ayat-plate { padding: 2.2rem 1.7rem 2rem; }
   .ayat-plate__frame { display: none; }
