@@ -55,6 +55,7 @@
   margin-inline: auto;
   display: grid;
   justify-items: center;
+  padding-top: clamp(3.2rem, 6vh, 4.2rem);
 }
 
 /* the glazed dome rises out of the dawn behind the arch */
@@ -104,12 +105,15 @@
   to   { rotate: 2.2deg; }
 }
 
-/* the cross emblem rides above the window */
+/* the cross emblem floats just above the finial — its foot tucks
+       behind the stone tip for layered depth */
 .noor-stage__crescent {
-  position: relative;
+  position: absolute;
+  top: clamp(.1rem, 1vh, .6rem);
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 1;
   width: clamp(2.5rem, 5vw, 3.4rem);
-  margin-bottom: clamp(.3rem, 1.2vh, .8rem);
   pointer-events: none;
   user-select: none;
 }
@@ -141,24 +145,9 @@
 .arch-card {
   position: relative;
   z-index: 2;
-  width: min(100%, 480px);
+  width: min(100%, 520px, calc((100svh - 9rem) * .574));
   aspect-ratio: 574 / 1000;
   container-type: inline-size;
-}
-
-/* the paper's shadow pooling on the window's inner depth */
-.arch-card::before {
-  content: "";
-  position: absolute;
-  left: 12%;
-  right: 12.5%;
-  top: 43%;
-  bottom: 8.5%;
-  z-index: 1;
-  background: color-mix(in srgb, #170A0D 45%, transparent);
-  filter: blur(26px);
-  border-radius: 10px;
-  pointer-events: none;
 }
 
 .arch-card__frame {
@@ -173,52 +162,79 @@
   z-index: 0;
 }
 
-/* the ivory letter — a clean ogive floating in the lower window, its
-   geometry rebuilt from the five-lancet artwork itself: the sides sit
-   flush inside the jamb faces (60..511 of 574), the gothic head springs
-   at y 640 and rises to an apex at y 440 that clears every tracery head
-   (quatrefoil, trefoils and lancet points all stay visible above), and
-   a champagne hairline rim traces the curve via drop-shadow */
+/* the tracery crown — a second copy of the window laid OVER the ivory
+   letter; it dissolves into the paper just below the tracery heads */
+.arch-card__crown {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+  user-select: none;
+  z-index: 3;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 34%, transparent 44%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 34%, transparent 44%);
+}
+
+/* the ivory letter — full height, top:0. Its silhouette is traced
+   from the window's own stone band (scripts/amoris_ogive_full.py): the
+   head tucks 6px under the tracery so no dark sliver can show, the
+   body rides the jamb faces, and the masked crown copy above it lays
+   the quatrefoil and lancet heads over the ivory in silhouette.
+   Text lives in the zone below the crown fade (padding-top 80cqw). */
 .arch-card__inner {
   position: absolute;
-  left: 10.453%;
-  right: 10.976%;
-  top: 44%;
-  bottom: 6%;
+  inset: 0;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 5cqw 5cqw 5.5cqw;
-  gap: 0;
+  padding: 76cqw 7cqw 5cqw;
   background: linear-gradient(180deg,
     var(--paper-raised) 0%,
     var(--ivory) 52%,
     color-mix(in srgb, var(--parchment) 80%, var(--ivory) 20%) 100%);
-  border-radius: 4px;
   box-shadow:
     inset 0 0 0 1px color-mix(in srgb, var(--champagne) 42%, transparent),
-    inset 0 0 40px color-mix(in srgb, var(--burgundy) 8%, transparent);
-  filter:
-    drop-shadow(0 1px 0 color-mix(in srgb, var(--champagne) 55%, transparent))
-    drop-shadow(0 22px 46px color-mix(in srgb, #170A0D 55%, transparent));
-  clip-path: polygon(50.00% 0.00%, 48.69% 2.17%, 47.16% 4.08%, 45.45% 5.74%, 43.56% 7.19%, 41.52% 8.45%, 39.34% 9.54%, 37.06% 10.49%, 34.69% 11.33%, 32.25% 12.08%, 29.76% 12.77%, 27.24% 13.42%, 24.72% 14.07%, 22.20% 14.72%, 19.73% 15.42%, 17.30% 16.19%, 14.96% 17.05%, 12.70% 18.03%, 10.57% 19.15%, 8.57% 20.44%, 6.73% 21.93%, 5.07% 23.64%, 3.61% 25.60%, 2.36% 27.83%, 1.36% 30.36%, 0.62% 33.21%, 0.16% 36.42%, 0.00% 40.00%, 0.00% 100.00%, 100.00% 100.00%, 100.00% 40.00%, 99.84% 36.42%, 99.38% 33.21%, 98.64% 30.36%, 97.64% 27.83%, 96.39% 25.60%, 94.93% 23.64%, 93.27% 21.93%, 91.43% 20.44%, 89.43% 19.15%, 87.30% 18.03%, 85.04% 17.05%, 82.70% 16.19%, 80.27% 15.42%, 77.80% 14.72%, 75.28% 14.07%, 72.76% 13.42%, 70.24% 12.77%, 67.75% 12.08%, 65.31% 11.33%, 62.94% 10.49%, 60.66% 9.54%, 58.48% 8.45%, 56.44% 7.19%, 54.55% 5.74%, 52.84% 4.08%, 51.31% 2.17%, 50.00% 0.00%);
+    inset 0 0 46px color-mix(in srgb, var(--burgundy) 9%, transparent);
+  filter: drop-shadow(0 16px 36px color-mix(in srgb, #170A0D 45%, transparent));
+  clip-path: polygon(54.18% 1.40%, 55.92% 1.80%, 57.67% 2.20%, 59.06% 2.60%, 60.63% 3.00%, 63.76% 3.40%, 64.98% 3.80%, 66.20% 4.20%, 67.42% 4.60%, 68.47% 5.00%, 69.51% 5.40%, 70.56% 5.80%, 71.25% 6.20%, 72.47% 6.60%, 73.34% 7.00%, 74.22% 7.40%, 75.09% 7.80%, 76.13% 8.20%, 76.83% 8.60%, 77.53% 9.00%, 78.40% 9.40%, 78.92% 9.80%, 79.62% 10.20%, 80.49% 10.60%, 81.18% 11.00%, 81.71% 11.40%, 82.06% 11.80%, 82.75% 12.20%, 83.28% 12.60%, 83.97% 13.00%, 84.67% 13.40%, 85.19% 13.80%, 85.71% 14.20%, 86.24% 14.60%, 86.76% 15.00%, 87.11% 15.40%, 87.80% 15.80%, 87.98% 16.20%, 88.33% 16.60%, 88.68% 17.00%, 89.02% 17.40%, 89.02% 17.80%, 89.02% 18.20%, 89.02% 18.60%, 89.02% 19.00%, 89.02% 19.40%, 89.02% 19.80%, 89.02% 20.20%, 89.02% 20.60%, 89.02% 21.00%, 89.02% 21.40%, 89.02% 21.80%, 89.02% 22.20%, 89.02% 22.60%, 89.02% 23.00%, 89.02% 23.40%, 89.02% 23.80%, 89.02% 24.20%, 89.02% 24.60%, 89.02% 25.00%, 89.02% 25.40%, 89.02% 25.80%, 89.02% 26.20%, 89.02% 26.60%, 89.02% 27.00%, 89.02% 27.40%, 89.02% 27.80%, 89.02% 28.20%, 89.02% 28.60%, 89.02% 29.00%, 89.02% 29.40%, 89.02% 29.80%, 89.02% 29.90%, 89.02% 97.20%, 10.45% 97.20%, 10.45% 29.90%, 10.45% 29.80%, 10.45% 29.40%, 10.45% 29.00%, 10.45% 28.60%, 10.45% 28.20%, 10.45% 27.80%, 10.45% 27.40%, 10.45% 27.00%, 10.45% 26.60%, 10.45% 26.20%, 10.45% 25.80%, 10.45% 25.40%, 10.45% 25.00%, 10.45% 24.60%, 10.45% 24.20%, 10.45% 23.80%, 10.45% 23.40%, 10.45% 23.00%, 10.45% 22.60%, 10.45% 22.20%, 10.45% 21.80%, 10.45% 21.40%, 10.45% 21.00%, 10.45% 20.60%, 10.45% 20.20%, 10.45% 19.80%, 10.63% 19.40%, 10.98% 19.00%, 11.50% 18.60%, 11.85% 18.20%, 12.20% 17.80%, 12.54% 17.40%, 13.07% 17.00%, 13.41% 16.60%, 13.94% 16.20%, 14.46% 15.80%, 14.81% 15.40%, 15.33% 15.00%, 16.03% 14.60%, 16.55% 14.20%, 17.07% 13.80%, 17.42% 13.40%, 18.12% 13.00%, 18.82% 12.60%, 19.34% 12.20%, 19.86% 11.80%, 20.56% 11.40%, 21.25% 11.00%, 21.95% 10.60%, 22.65% 10.20%, 23.52% 9.80%, 24.04% 9.40%, 25.09% 9.00%, 25.78% 8.60%, 26.66% 8.20%, 27.53% 7.80%, 28.57% 7.40%, 29.44% 7.00%, 30.49% 6.60%, 31.36% 6.20%, 32.23% 5.80%, 33.62% 5.40%, 34.84% 5.00%, 36.06% 4.60%, 37.28% 4.20%, 38.68% 3.80%, 39.90% 3.40%, 41.29% 3.00%, 43.21% 2.60%, 44.95% 2.20%, 46.86% 1.80%, 49.13% 1.40%);
 }
 .arch-card__inner > * { max-width: 100%; }
-.arch-card__inner > * + * { margin-top: clamp(.1rem, .7cqw, .28rem); }
+.arch-card__inner > * + * { margin-top: clamp(.12rem, .8cqw, .34rem); }
+
+/* the cross roundel opens the letter — hairline flanks, gold ink */
+.arch-card__orn {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(6px, 2.2cqw, 12px);
+}
+.arch-card__orn i {
+  display: block;
+  width: clamp(18px, 7cqw, 34px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-line));
+}
+.arch-card__orn i:last-child { transform: scaleX(-1); }
+.arch-card__orn img {
+  width: clamp(1.6rem, 6cqw, 2.2rem);
+  height: auto;
+  opacity: .96;
+}
 
 .arch-card__bismillah {
   font-family: var(--font-editorial);
   font-style: italic;
-  font-size: clamp(.88rem, 2.7cqw, 1.1rem);
+  font-size: clamp(.95rem, 4cqw, 1.5rem);
   line-height: 1.5;
   color: var(--burgundy);
   margin-bottom: 0;
   /* stay inside the ogive head — the curve is narrowest at the top,
      so the verse wraps gracefully instead of crossing the gilt edge */
-  max-width: 62cqw;
+  max-width: 84cqw;
 }
 
 /* the blessing line lives with the closing words under the window */
@@ -227,7 +243,7 @@
   margin-top: .5cqw;
   font-weight: 600;
   letter-spacing: .13em;
-  font-size: clamp(.5rem, 1.9cqw, .58rem);
+  font-size: clamp(.54rem, 2.2cqw, .72rem);
   line-height: 1.8;
   color: var(--gold-ink);
 }
@@ -239,7 +255,7 @@
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: .15em;
-  font-size: clamp(.5rem, 2.1cqw, .6rem);
+  font-size: clamp(.58rem, 2.8cqw, .82rem);
   line-height: 1.62;
   color: var(--ink-soft);
 }
@@ -256,7 +272,7 @@
 .arch-card__name {
   font-family: var(--font-script);
   font-weight: 400;
-  font-size: clamp(1.8rem, 6.9cqw, 2.7rem);
+  font-size: clamp(2rem, 12cqw, 4.8rem);
   line-height: 1.06;
   color: var(--burgundy);
   text-shadow: 0 1px 0 color-mix(in srgb, var(--champagne) 30%, transparent);
@@ -265,7 +281,7 @@
 .arch-card__and {
   font-family: var(--font-editorial);
   font-style: italic;
-  font-size: clamp(.66rem, 2.1cqw, .84rem);
+  font-size: clamp(.76rem, 2.8cqw, 1.05rem);
   color: var(--gold-ink);
   letter-spacing: .08em;
 }
@@ -283,14 +299,14 @@
   background: linear-gradient(90deg, transparent, var(--gold-line));
 }
 .arch-card__rule i:last-child { transform: scaleX(-1); }
-.arch-card__rule img { width: clamp(1.7rem, 5.6%, 2.2rem); height: auto; opacity: .92; }
+.arch-card__rule img { width: clamp(1.8rem, 6cqw, 2.4rem); height: auto; opacity: .92; }
 .arch-card__rule--end { display: inline-flex; }
 
 .arch-card__date { margin-top: 0; }
 .arch-card__date-week {
   color: var(--gold-ink);
   letter-spacing: .26em;
-  font-size: clamp(.44rem, 1.7cqw, .52rem);
+  font-size: clamp(.48rem, 2cqw, .62rem);
 }
 .arch-card__date-row {
   display: flex;
@@ -301,11 +317,11 @@
 }
 .arch-card__date-side {
   color: var(--ink-soft);
-  font-size: clamp(.54rem, 2.2cqw, .66rem);
+  font-size: clamp(.58rem, 2.6cqw, .82rem);
 }
 .arch-card__date-num {
   font-family: var(--font-display);
-  font-size: clamp(1.15rem, 4.6cqw, 1.5rem);
+  font-size: clamp(1.2rem, 7.5cqw, 2.4rem);
   line-height: 1;
   color: var(--burgundy);
   letter-spacing: .04em;
@@ -315,7 +331,7 @@
 .arch-card__nikah {
   max-width: 100%;
   letter-spacing: .12em;
-  font-size: clamp(.46rem, 1.95cqw, .56rem);
+  font-size: clamp(.5rem, 2.2cqw, .7rem);
   line-height: 1.75;
   color: var(--gold-ink);
 }
@@ -336,7 +352,7 @@
 }
 .arch-card__venue-name {
   font-family: var(--font-display);
-  font-size: clamp(.82rem, 2.9cqw, 1.02rem);
+  font-size: clamp(.82rem, 3.4cqw, 1.22rem);
   letter-spacing: .05em;
   color: var(--ink);
 }
